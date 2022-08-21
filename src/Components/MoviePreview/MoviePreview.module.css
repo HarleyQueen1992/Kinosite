@@ -1,0 +1,86 @@
+.moviePreviewContainer {
+    justify-self: center;
+    display: grid;
+    grid-template-rows: 1fr;
+}
+.muvies {
+
+}
+.movie {
+    width: 240px;
+    position: relative;
+}
+.movieCoverInner {
+    position: relative;
+    height: 360px;
+}
+.movieCover {
+    max-width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.movieCoverDarkened {
+    background-color: #000;
+    opacity: 0.1;
+    position: absolute;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 1; 
+}
+.movieCoverDarkened:hover {
+    background-color: rgba(128, 128, 128, 0.727);
+    cursor: pointer;
+}
+.movieInfo {
+    padding: 10px 0;
+
+}
+.movieTitle {
+    font-size: 16px;
+
+}
+.movieCategory {
+    font-size: 14px;
+    color: #ffd80e;
+
+}
+.movieAverage {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 0;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a191fde;
+    color: white;
+    font-size: 14px;
+}
+.movieAverageGreen {
+    border: 1px solid green;
+}
+.movieAverageYellow {
+    border: 1px solid yellow;
+}
+.movieAverageRed {
+    border: 1px solid red;
+}

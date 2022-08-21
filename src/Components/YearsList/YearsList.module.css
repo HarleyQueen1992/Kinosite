@@ -1,0 +1,23 @@
+.yearsList {
+    max-width: 100vw;
+    height: auto;
+    word-break: break-word;
+    text-align: center;
+}
+.year {
+    padding: 4px 6px;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 36px;
+    white-space: nowrap;
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+}
+.yearActive {
+    border-bottom: 2px solid white;
+}
+.year:hover {
+    border-bottom: 2px solid white;
+    transition: border-color 0.5s, color 0.5s;
+}

@@ -1,0 +1,12 @@
+* {
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  box-sizing: border-box;
+}
+body {
+  background-color: rgb(23, 22, 22);
+  height: 100vh;
+}
+.app {
+  display: grid;
+}
