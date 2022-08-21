@@ -6,7 +6,7 @@ import s from './Movies.module.css'
 
 const Movies = (props) => {
     
-    const lastAbortController = useRef(); 
+    const lastAbortController = useRef();
 
     const [movies, setMovies] = useState([]);
     const [totalPages, setTotalPages] = useState(0);
@@ -16,9 +16,6 @@ const Movies = (props) => {
     const [searchParams] = useSearchParams();
 
     const movieYear = searchParams.get('movieYear')
-
-    const keyWord = props.keyWord
-
 
     useEffect(() => {
 
@@ -49,8 +46,7 @@ const Movies = (props) => {
                 .catch(err => console.log(err))
         } else {
             setIsFetching(true)
-            // controller.abort()
-            fetch(`https://kinopoiskapiunofficial.tech/api/v2.2/films?page=1&keyword=${keyWord}`, {
+            fetch(`https://kinopoiskapiunofficial.tech/api/v2.2/films?page=1&keyword=${props.keyWord}`, {
                 method: 'GET',
                 signal: curAbortController.signal, 
                 headers: { 
@@ -67,9 +63,12 @@ const Movies = (props) => {
                 }) 
                 .catch(err => console.log(err))
         }
-    }, [keyWord, movieYear])
+    }, [props.keyWord, movieYear])
 
     useEffect(() => {
+
+        
+
         document.addEventListener("scroll", scrollHandler);
         return function () {
           document.removeEventListener("scroll", scrollHandler);
@@ -77,16 +76,17 @@ const Movies = (props) => {
       });
 
     const scrollHandler = (e) => {
+        if ( (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 400) && !isLoading && props.curruntPage <= totalPages) {
+            
+            if (lastAbortController.current) {
+                lastAbortController.current.abort();
+            }
+    
+            const curAbortController = new AbortController();
+            lastAbortController.current = curAbortController;
 
-        if (lastAbortController.current) {
-            lastAbortController.current.abort();
-        }
-
-        const curAbortController = new AbortController();
-        lastAbortController.current = curAbortController;
-
-        if ( (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 200) && !isLoading && props.curruntPage <= totalPages) {
             setIsLoading(true)  
+
             fetch(`https://kinopoiskapiunofficial.tech/api/v2.2/films?page=${props.curruntPage}&keyword=${props.keyWord}&yearFrom=${movieYear ? movieYear : '1000'}&yearTo=${movieYear ? movieYear : '3000'}`, {
             method: 'GET', 
             signal: curAbortController.signal, 
@@ -111,9 +111,8 @@ const Movies = (props) => {
         <YearsList activeYear={movieYear} />
         {isFetching 
         ? ( <div className={s.preloaderBlock} ><span className={s.preloader} > Loading...</span></div>) 
-        : (<div className={s.movies} >{movies.map((movie) => <MoviePreview key={movie.kinopoiskId} movie={movie} />)}</div>)}
+        : (<div className={s.movies} >{movies.map((movie) => <MoviePreview movie={movie} />)}</div>)}
         </>
     )
 }
-
 export default Movies;
