@@ -9,7 +9,7 @@ const MoviePreview = (props) => {
                 <div className={s.movie} >
                     <div className={s.movieCoverInner} >
                             <img className={s.movieCover} src={props.movie.posterUrl} alt="posterUrl" />
-                            <a href={'https://www.kinopoisk.ru/film/' + props.movie.kinopoiskId } className={s.movieCoverDarkened} ></a> 
+                            <a href={'/film/' + props.movie.kinopoiskId } className={s.movieCoverDarkened} ></a> 
                     </div>
                                  
                 
