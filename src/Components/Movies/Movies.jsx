@@ -66,9 +66,6 @@ const Movies = (props) => {
     }, [props.keyWord, movieYear])
 
     useEffect(() => {
-
-        
-
         document.addEventListener("scroll", scrollHandler);
         return function () {
           document.removeEventListener("scroll", scrollHandler);

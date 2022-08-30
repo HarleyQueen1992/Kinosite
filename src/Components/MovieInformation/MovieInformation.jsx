@@ -1,6 +1,5 @@
-import { isEditable } from '@testing-library/user-event/dist/utils';
 import React, { useEffect, useState } from 'react';
-import { useParams, useSearchParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import s from './MovieInformation.module.css'
 
 const MovieInformation = (props) => {
@@ -67,7 +66,7 @@ const MovieInformation = (props) => {
                         <div>{filmInfo.year}</div>
                     
                         <div className={s.subtitle} >Страна:</div>
-                        <div className={s.listCountries} >{filmInfo.countries.map((country, index) => <span key={index} >{index != 0 && ', '}{country.country}</span> )}</div>
+                        <div className={s.listCountries} >{filmInfo.countries.map((country, index) => <span key={index} >{index !== 0 && ', '}{country.country}</span> )}</div>
                     </div>
                 </div>
                 <div className={s.descriptionMovie} >
