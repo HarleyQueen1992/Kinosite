@@ -13,7 +13,7 @@ const Header = (props) => {
     const keyWordChange = (e) => {
         props.setKeyWord(e.target.value);
         props.setCurrentPage(1);
-        navigate(`films/?keyWord=${e.target.value}`)
+        navigate(`/films/?keyWord=${e.target.value}`)
     }
     return (
         <header className={s.header} >

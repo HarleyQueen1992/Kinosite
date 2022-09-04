@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import s from './MoviePreview.module.css'
 
 const MoviePreview = (props) => {
@@ -9,7 +10,7 @@ const MoviePreview = (props) => {
                 <div className={s.movie} >
                     <div className={s.movieCoverInner} >
                             <img className={s.movieCover} src={props.movie.posterUrl} alt="posterUrl" />
-                            <a href={'/film/' + props.movie.kinopoiskId } className={s.movieCoverDarkened} ></a> 
+                            <NavLink to={'/film/' + props.movie.kinopoiskId } className={s.movieCoverDarkened} ></NavLink> 
                     </div>
                                  
                 

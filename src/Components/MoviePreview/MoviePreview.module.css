@@ -3,9 +3,6 @@
     display: grid;
     grid-template-rows: 1fr;
 }
-.muvies {
-
-}
 .movie {
     width: 240px;
     position: relative;
