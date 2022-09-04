@@ -1,9 +1,0 @@
-.content {
-    height: calc(100vh - 70px); /* Высота минус header */
-    width: 100vw;
-    display: grid;
-}
-.title {
-    align-self: center;
-    justify-self: center;
-}

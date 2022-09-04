@@ -1,6 +1,7 @@
 import {React, useEffect, useRef, useState} from 'react';
 import { useSearchParams } from 'react-router-dom';
 import MoviePreview from '../MoviePreview/MoviePreview';
+import Preloader from '../Preloader/Preloader';
 import YearsList from '../YearsList/YearsList';
 import s from './Movies.module.css'
 
@@ -107,7 +108,7 @@ const Movies = (props) => {
         <>
         <YearsList activeYear={movieYear} />
         {isFetching 
-        ? ( <div className={s.preloaderBlock} ><span className={s.preloader} > Loading...</span></div>) 
+        ? ( <Preloader/>) 
         : (<div className={s.movies} >{movies.map((movie) => <MoviePreview movie={movie} />)}</div>)}
         </>
     )

@@ -7,14 +7,6 @@
     grid-column-gap: 80px;
     grid-row-gap: 100px;
 }
-.preloaderBlock {
-    position: absolute;
-    top: calc(50% - 9.2px);
-    left: calc(50% - 35.14px);
-}
-.preloader {
-    margin: auto;
-}
 @media (max-width: 1300px) {
     .movies {
         grid-template-columns: 1fr 1fr 1fr;
