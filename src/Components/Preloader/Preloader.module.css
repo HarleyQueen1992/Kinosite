@@ -1,0 +1,8 @@
+.preloaderBlock {
+    position: absolute;
+    top: calc(50% - 9.2px);
+    left: calc(50% - 35.14px);
+}
+.preloader {
+    margin: auto;
+}
