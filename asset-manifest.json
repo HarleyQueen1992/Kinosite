@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Kinosite/static/css/main.4e0d8bd6.css",
-    "main.js": "/Kinosite/static/js/main.cc3a8974.js",
+    "main.css": "/Kinosite/static/css/main.5ecb2e4a.css",
+    "main.js": "/Kinosite/static/js/main.f4a07ab5.js",
     "static/js/787.a5b8fee4.chunk.js": "/Kinosite/static/js/787.a5b8fee4.chunk.js",
     "index.html": "/Kinosite/index.html",
-    "main.4e0d8bd6.css.map": "/Kinosite/static/css/main.4e0d8bd6.css.map",
-    "main.cc3a8974.js.map": "/Kinosite/static/js/main.cc3a8974.js.map",
+    "main.5ecb2e4a.css.map": "/Kinosite/static/css/main.5ecb2e4a.css.map",
+    "main.f4a07ab5.js.map": "/Kinosite/static/js/main.f4a07ab5.js.map",
     "787.a5b8fee4.chunk.js.map": "/Kinosite/static/js/787.a5b8fee4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4e0d8bd6.css",
-    "static/js/main.cc3a8974.js"
+    "static/css/main.5ecb2e4a.css",
+    "static/js/main.f4a07ab5.js"
   ]
 }
