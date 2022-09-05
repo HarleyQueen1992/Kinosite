@@ -18,7 +18,6 @@
     display: grid;
     grid-template-columns: 300px 1fr;
     grid-column-gap: 40px;
-
 }
 .moviePoster {
     width: 300px;
@@ -29,7 +28,7 @@
 }
 .movieDetails {
     display: grid;
-    grid-template-columns: 150px 1fr;
+    grid-template-columns: 120px 1fr;
     grid-row-gap: 20px;
     align-content: center;
     align-self: start;
@@ -62,4 +61,41 @@
 .yearNomination {
     font-size: 13px;
     color: rgb(187, 187, 187);
+}
+
+@media (max-width: 900px) {
+    .movieInformation {
+        width: 100%;
+    }
+    .movieTitle {
+        justify-self: center;
+    }
+    .movieTitleEn {
+        justify-self: center;
+    }
+    .posterAndMovieDetail {
+        grid-template-columns: none;
+    }
+    .moviePoster {
+        justify-self: center;
+    }
+    .movieDetails {
+        margin: 20px 10px;
+        justify-self: center;
+    }
+    .descriptionMovie {
+        margin: 0 10px  ;
+    }
+    .raitingList {
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    .raitingList {
+        grid-template-columns: none;
+        grid-template-rows: 1fr 1fr;
+        grid-row-gap: 5px;
+    }
+    
 }
