@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import s from './MovieInformation.module.css'
+import key  from './../../utils/const'
+
 
 const MovieInformation = (props) => {
 
     const [filmInfo, setFilmInfo] = useState(null);
     const [movieAwards, setMovieAwards] = useState(null)
+    const [videos, setVideos] = useState(null);
 
     const params = useParams();
 
@@ -13,7 +16,7 @@ const MovieInformation = (props) => {
         fetch(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${params.id}/awards`, {
             method: 'GET', 
             headers: { 
-                'X-API-KEY': 'f942ed61-86af-42a7-bab7-91ccf55fcace', 
+                'X-API-KEY': key, 
                 'Content-Type': 'application/json', 
             }, 
             }) 
@@ -23,10 +26,32 @@ const MovieInformation = (props) => {
             }) 
             .catch(err => console.log(err))
 
+        fetch(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${params.id}/videos`, {
+            method: 'GET', 
+            headers: { 
+                'X-API-KEY': key, 
+                'Content-Type': 'application/json', 
+            }, 
+            }) 
+            .then(res => res.json()) 
+            .then(json => {
+                if (json.total < 10) {
+                    setVideos(json.items);
+                } else {
+                    let videos = [];
+                    for (let i = 0; i < 10; i++) {
+                        videos.push(json.items[i])
+                    }
+                    setVideos(videos);
+                }
+                
+            }) 
+            .catch(err => console.log(err))
+
         fetch(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${params.id}`, {
             method: 'GET', 
             headers: { 
-                'X-API-KEY': 'f942ed61-86af-42a7-bab7-91ccf55fcace', 
+                'X-API-KEY': key, 
                 'Content-Type': 'application/json', 
             }, 
             }) 
@@ -72,6 +97,17 @@ const MovieInformation = (props) => {
                 <div className={s.descriptionMovie} >
                     <h3>Про что сериал «{filmInfo.nameRu}»</h3>
                     <p>{filmInfo.description}</p>
+                </div>
+                <div className={s.videosBlock} >
+                    {videos && videos.map((video) =>
+                        <iframe
+                                className={s.iframe}
+                                src={"https://www.youtube.com/embed/" + (video.url.split('/').pop())}
+                                title="YouTube video player"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen></iframe>
+                    )}
                 </div>
             </div>}
         </>)

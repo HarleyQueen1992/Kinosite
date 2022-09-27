@@ -4,6 +4,7 @@ import MoviePreview from '../MoviePreview/MoviePreview';
 import Preloader from '../Preloader/Preloader';
 import YearsList from '../YearsList/YearsList';
 import s from './Movies.module.css'
+import key from './../../utils/const'
 
 const Movies = (props) => {
     
@@ -33,7 +34,7 @@ const Movies = (props) => {
                 method: 'GET', 
                 signal: curAbortController.signal,
                 headers: { 
-                    'X-API-KEY': 'f942ed61-86af-42a7-bab7-91ccf55fcace', 
+                    'X-API-KEY': key, 
                     'Content-Type': 'application/json', 
                 }, 
                 }) 
@@ -51,7 +52,7 @@ const Movies = (props) => {
                 method: 'GET',
                 signal: curAbortController.signal, 
                 headers: { 
-                    'X-API-KEY': 'f942ed61-86af-42a7-bab7-91ccf55fcace', 
+                    'X-API-KEY': key, 
                     'Content-Type': 'application/json', 
                 }, 
                 }) 
@@ -89,7 +90,7 @@ const Movies = (props) => {
             method: 'GET', 
             signal: curAbortController.signal, 
             headers: { 
-                'X-API-KEY': 'f942ed61-86af-42a7-bab7-91ccf55fcace', 
+                'X-API-KEY': key, 
                 'Content-Type': 'application/json', 
             }, 
             }) 
@@ -106,11 +107,12 @@ const Movies = (props) => {
 
     return (
         <>
-        <YearsList activeYear={movieYear} />
-        {isFetching 
-        ? ( <Preloader/>) 
-        : (<div className={s.movies} >{movies.map((movie) => <MoviePreview movie={movie} />)}</div>)}
+            <YearsList activeYear={movieYear} />
+            {isFetching 
+            ? ( <Preloader/>) 
+            : (<div className={s.movies} >{movies.map((movie) => <MoviePreview movie={movie} />)}</div>)}
         </>
     )
 }
+
 export default Movies;
